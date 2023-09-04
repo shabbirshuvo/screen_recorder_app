@@ -5,9 +5,9 @@ while video_capture.isOpened():
     ret, frame = video_capture.read()
     print(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
     print(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # cv2.imshow('Video', frame)
-    cv2.imshow('Video', gray)
+    # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.imshow('Video', frame)
+    # cv2.imshow('Video', gray)
 
     if cv2.waitKey(1) == ord('q'):
         break
