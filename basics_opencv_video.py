@@ -1,4 +1,5 @@
 import cv2
+import datetime
 
 # Open the default camera
 video_capture = cv2.VideoCapture(0)
@@ -20,6 +21,10 @@ while video_capture.isOpened():
 
     # Check if the frame was read correctly
     if ret:
+        text = "Width: " + str(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH)) + " Height: " + str(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        current_time = datetime.datetime.now()
+        frame = cv2.putText(frame, (text+' '+str(current_time)), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
+
         # Write the frame to the output video
         output.write(frame)
 
